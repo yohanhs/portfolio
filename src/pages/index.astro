@@ -1,16 +1,20 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroHome from "../components/heroHome/HeroHome.astro";
+import Projects from "../components/projects/Projects.astro";
+import Experience from "../components/experience/Experience.astro";
+import AboutMe from "../components/about/AboutMe.astro";
+import Contact from "../components/contact/Contact.astro";
 ---
+<BaseLayout title="Yohanhs">
+    <main class="mx-auto dark:text-white ">
+        <HeroHome/>
+        <Projects/>
+        <Experience/>
+        <AboutMe/>
+        <Contact/>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    </main>
+</BaseLayout>
+
+

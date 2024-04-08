@@ -1,0 +1,64 @@
+---
+const SKILLS = [
+    'HTML',
+    'CSS',
+    'Java Script',
+    'Type Script',
+    'Tailwind',
+    'Bootstrap',
+    'Material UI',
+    'React',
+    'NextJS',
+    'Vue',
+    'Astro',
+    'WordPress',
+    'Java',
+    'Git',
+    'GitHub',
+    'Bitbucket',
+    'Trello',
+    'Jira',
+    'Slack',
+    'SEO',
+    'Docket',
+    'Mongo DB',
+    'Postgres SQL',
+    'MySQL']
+---
+<div class="flex flex-col lg:flex-row gap-16">
+    <article class="w-full lg:w-1/2 space-y-10">
+        <h4 class="font-jetbrains font-bold text-2xl sm:text-2xl md:text-3xl">Get to know me!</h4>
+        <p class="text-pretty text-[0.9rem] sm:text-[1rem] md:text-xl dark:text-gray-300 text-gray-500">
+            With over 10 years of software development
+            experience, I am an educated and adaptable
+            professional who has demonstrated success in key
+            roles.<br><br>
+            Specialized in <span class="text-baseColor-500 font-bold">React JS </span>with more 5 years of experience,
+            my versatility is reflected in successful forays into
+            backend and mobile development. Currently, I
+            occupy the role of <span class="text-baseColor-500 font-bold">Front End and Team Leader</span>,
+            standing out for my ability to easily adapt to teams
+            and environments.<br><br>
+            My ability to work under pressure has been tested in
+            various situations, demonstrating resilience and
+            efficiency in problem solving.<br><br>
+            My willingness to learn and adapt to new
+            technologies and roles reflects my constant desire to
+            contribute and grow in the dynamic landscape of
+            software development.
+        </p>
+    </article>
+    <div class="w-full lg:w-1/2">
+        <div class="space-y-10">
+            <h4 class="font-jetbrains font-black text-2xl sm:text-2xl md:text-3xl">My Skills</h4>
+            <div class="flex gap-4 flex-wrap">
+                {SKILLS.map(skill => (
+                        <div class="w-auto px-6 py-4 rounded-md bg-gray-200 dark:bg-transparent dark:border dark:text-white text-[1rem] md:text-xl text-gray-500 ">
+                            <p>{skill}</p>
+                        </div>
+                ))}
+            </div>
+        </div>
+
+    </div>
+</div>

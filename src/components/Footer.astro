@@ -1,0 +1,29 @@
+---
+import Linkedin from "../icons/Linkedin.astro";
+import SocialIcons from "./heroHome/SocialIcons.astro";
+import GitHub from "../icons/GitHub.astro";
+const currentYear = new Date().getFullYear()
+---
+<footer class="container mx-auto text-gray-500 dark:text-white ">
+    <hr class="w-full border-t-2 dark:border-t-gray-500">
+    <div class="flex flex-col-reverse items-center gap-4 justify-center sm:justify-between sm:flex-row py-6">
+        <div class="font-light">
+            <p>
+                © Copyright {currentYear} . Made by yohanhs
+            </p>
+        </div>
+        <div class="flex gap-x-2">
+            <SocialIcons href="#">
+                  <span class="dark:text-white " aria-label="Linkedin">
+                  <Linkedin class="size-8 "/>
+                        </span>
+            </SocialIcons>
+            <SocialIcons href="#">
+                 <span class="dark:text-white " aria-label="Github">
+                <GitHub class="size-7"/>
+                     </span>
+            </SocialIcons>
+        </div>
+    </div>
+
+</footer>

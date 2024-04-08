@@ -1,0 +1,109 @@
+---
+import type {IMenu} from "../../interfaces/interface";
+import HamburgButton from "./HamburgButton.astro";
+import Logo from "../../icons/Logo.astro";
+import NavBar from "./NavBar.astro";
+import HomeIcon from "../../icons/HomeIcon.astro";
+import WorksIcon from "../../icons/WorksIcon.astro";
+import ContactIcon from "../../icons/ContactIcon.astro";
+import AboutMeIcon from "../../icons/AboutMeIcon.astro";
+import ExperienceIcon from "../../icons/ExperienceIcon.astro";
+import ToogleDarkMode from "./ToogleDarkMode.astro";
+export const menu: IMenu[] = [
+    {
+        title: 'Home',
+        link: '/',
+        icon: HomeIcon,
+
+    },
+    {
+        title: 'Projects',
+        link: '/projects',
+        icon: WorksIcon,
+    },
+    {
+        title: 'Experience',
+        link: '/#experience',
+        icon: ExperienceIcon,
+    },
+    {
+        title: 'About Me',
+        link: '/#about-me',
+        icon: AboutMeIcon,
+    },
+    {
+        title: 'Contact',
+        link: '/#contact',
+        icon: ContactIcon,
+    },
+
+]
+---
+<header class=" fixed h-16 w-full z-50 top-0 py-12 ">
+    <div class="container flex justify-between items-center h-full mx-auto ">
+
+        <a href="/" class="text-2xl  flex font-semibold uppercase items-center justify-center text-baseColor-500 ">
+            <span class=" text-2xl text-baseColor-400 flex items-center"><Logo class="size-10"/></span>Yohanhs
+        </a>
+
+        <div class="flex lg:hidden items-center gap-4">
+            <ToogleDarkMode/>
+            <HamburgButton/>
+        </div>
+        <NavBar menu={menu}/>
+
+    </div>
+</header>
+<!-- Menú desplegable -->
+
+<div id="drawerMenu"
+     class="hidden w-full fixed top-24 z-50 bg-custom_gradient transform  duration-75 ease-in-out">
+    <ul class="flex flex-col items-end justify-center h-full text-white max-w-[90rem] px-10 text-2xl py-4 gap-y-4 font-bold">
+        {menu.map((men: IMenu, index: number) =>
+                <li><a class="" href={men.link}>{men.title}</a></li>
+        )}
+    </ul>
+
+</div>
+
+<style>
+    header {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+
+    @keyframes nav-shadown {
+        to {
+            @apply shadow-lg ring-1 backdrop-blur bg-white/10 ring-white/10;
+        }
+    }
+</style>
+
+<script>
+
+    function isScreenLarge() {
+        return window.innerWidth >= 768;
+    }
+
+    const hamburgerCheckbox = document.getElementById('menuButton');
+    const drawer = document.getElementById('drawerMenu');
+    let isDrawerOpen = false;
+
+    hamburgerCheckbox && hamburgerCheckbox.addEventListener('change', () => {
+        isDrawerOpen = !isDrawerOpen;
+        drawer && drawer.classList.toggle('hidden', !isDrawerOpen);
+    });
+
+    function closeDrawerIfScreenLarge() {
+        if (isScreenLarge() && isDrawerOpen) {
+            isDrawerOpen = false;
+            drawer && drawer.classList.add('hidden');
+            //@ts-ignore
+            hamburgerCheckbox.checked = false; // Asegúrate de que el checkbox refleje el estado correcto
+        }
+    }
+
+    // Escuchar el evento resize para cerrar el drawer si es necesario
+    window.addEventListener('resize', closeDrawerIfScreenLarge);
+</script>

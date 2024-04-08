@@ -1,0 +1,133 @@
+---
+import NextJS from '../../icons/NextJS.astro'
+import Tailwind from '../../icons/Tailwind.astro'
+import ButtonDownload from "../heroHome/ButtonDownload.astro";
+import Button from "../common/Button.astro";
+import LinkButton from './LinkButton.astro'
+import HomeIcon from "../../icons/HomeIcon.astro";
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+}
+const PROJECTS = [
+    {
+        title: "SVGL - A beautiful library with SVG logos",
+        description:
+            "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
+        link: "https://svgl.vercel.app/",
+        github: "https://github.com/pheralb/svgl",
+        image: "/assets/RC.jpg",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+
+    },
+    {
+        title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+        description:
+            "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+        link: "https://adventjs.dev",
+        image: "/assets/RC.jpg",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+        github: "https://github.com/pheralb/svgl",
+    },
+    {
+        title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+        description:
+            "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+        // link: "https://adventjs.dev",
+        image: "/assets/RC.jpg",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+        github: "https://github.com/pheralb/svgl",
+    },
+]
+---
+<div class="flex flex-col container mx-auto gap-y-20 ">
+    {
+        PROJECTS.map(({title, description, link, image, tags, github}): typeof PROJECTS => (
+                <article class="flex flex-col lg:flex-row  group animation gap-10 ">
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <div>
+                            <img alt=""
+                                 src={image}
+                                 loading="lazy"
+                                 class="shadow-2xl rounded-[20px] object-cover object-top w-full lg:w-[36rem] h-auto transition duration-500  hover:group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 space-y-8 ">
+                        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
+                            {title}
+                        </h3>
+                        <div class="flex flex-wrap mt-2 space-y-4">
+                            <ul class="flex flex-row mb-2 gap-x-2">
+                                {tags.map((tag) => (
+                                        <li>
+                                             <span
+                                                     class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                                             >
+                                              <tag.icon class="size-4"/>
+                                                 {tag.name}
+                                             </span>
+                                        </li>
+                                ))}
+                            </ul>
+
+                            <div class="mt-2 text-gray-500 dark:text-gray-400 text-pretty md:text-balance text-[1rem] md:text-xl">{description}</div>
+                            <footer class="flex items-end justify-start mt-4 gap-x-4">
+                                {github && (
+                                        <LinkButton href={github}>
+                                            <HomeIcon class="size-6"/>
+                                            Code
+
+                                        </LinkButton>
+                                )}
+                                {link && (
+                                        <LinkButton href={link}>
+                                            <HomeIcon class="size-4"/>
+                                            Preview
+                                        </LinkButton>
+                                )}
+                            </footer>
+                        </div>
+                    </div>
+
+                </article>
+        ))
+    }
+    <div class="w-42 flex justify-center ">
+        <Button href="/projects"> See All</Button>
+    </div>
+
+</div>
+
+<style>
+
+    .animation {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+
+        animation-timeline: --image;
+        animation-name: show;
+        animation-range: entry 25% cover 30%;
+        animation-fill-mode: both;
+    }
+
+    @keyframes show {
+        from {
+            opacity: 0;
+            scale: 25%;
+        }
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+</style>

@@ -1,0 +1,24 @@
+---
+import Linkedin from "../../icons/Linkedin.astro";
+import SocialIcons from "./SocialIcons.astro";
+import EmailSend from "../../icons/EmailSend.astro";
+import GitHub from "../../icons/GitHub.astro";
+---
+<nav class="flex gap-x-4">
+    <SocialIcons href="#">
+                  <span class="dark:text-white rounded-md   px-4 py-2 border border-baseColor-400"
+                        aria-label="Linkedin">
+                  <Linkedin class="size-6 sm:size-8 "/>
+                        </span>
+    </SocialIcons>
+    <SocialIcons href="#">
+                 <span class="dark:text-white rounded-md   px-4 py-2 border border-baseColor-400" aria-label="Github">
+                <GitHub class="size-6 sm:size-7"/>
+                     </span>
+    </SocialIcons>
+    <SocialIcons href="#">
+                 <span class="dark:text-white rounded-md   px-4 py-2 border border-baseColor-400" aria-label="email">
+                <EmailSend class="size-6 sm:size-7"/>
+                     </span>
+    </SocialIcons>
+</nav>

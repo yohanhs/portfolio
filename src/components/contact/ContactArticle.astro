@@ -1,0 +1,108 @@
+---
+import Button from "../common/Button.astro";
+import SendEmail from "../../icons/SendEmail.astro";
+
+const CONTACT = [
+    {
+        icon: SendEmail,
+        text: 'yohan12.carlos@gmail.com',
+        link: 'mailto:yohan12.carlos@gmail.com'
+    },
+    {
+        icon: SendEmail,
+        text: '+53 500 18717',
+        link: 'tel:+5350018717'
+    },
+    {
+        icon: SendEmail,
+        text: '+5350018717',
+        link: 'tel:+5350018717'
+    },
+    {
+        icon: SendEmail,
+        text: '+5350018717',
+        link: 'tel:+5350018717'
+    }
+]
+---
+<div class="flex flex-col lg:flex-row justify-center gap-16">
+    <div class="w-full lg:w-1/2 flex justify-center flex-col items-start space-y-6">
+        <h4 class="font-jetbrains font-black text-3xl">Available for Walk!</h4>
+        <p class="text-balance text-xl text-gray-500">
+            Have any questions, inquiries, or are ready to start a project with us? There you have our contact
+            information, you can also send us a message through the contact form below. Meanwhile, don't forget to
+            follow us on social networks:
+        </p>
+    </div>
+    <div class="w-full lg:w-1/2 flex flex-col items-start space-y-6 lg:ml-32 ">
+
+        <h4 class="font-jetbrains font-black text-xl sm:text-2xl md:text-3xl">Get in touch</h4>
+        <div class="flex gap-4 flex-wrap">
+            {CONTACT.map(touch => (
+                    <div class="flex gap-x-6 items-center relative">
+                        <a title="yohan12.carlos@gmail.com"
+                           id="tooltipButton"
+                           class="flex flex-col items-center justify-center bg-orange-500 text-white text-xl size-24  border-baseColor-500 rounded-full transition duration-500 hover:scale-105 shadow-2xl"
+                           href="#">
+                            <touch.icon class="size-16"/>
+                        </a>
+                        <div class="absolute top-0 left-0  p-3 bg-gray-700 text-white rounded shadow-lg invisible tooltip whitespace-nowrap">
+                            {touch.text}
+                        </div>
+
+                    </div>
+            ))}
+        </div>
+
+    </div>
+</div>
+<style>
+
+
+    .tooltip {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -60%; /* Ajusta esta propiedad para mover el tooltip hacia arriba */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .tooltip::after {
+        content: '';
+        position: absolute;
+        /* Ajusta esta posición según sea necesario */
+        left: 50%;
+        bottom: -20%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }
+
+
+    #tooltipButton:hover + .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tooltipButton = document.getElementById('tooltipButton');
+        const tooltip = document.getElementById('tooltip');
+
+        if (tooltipButton) {
+            tooltipButton.addEventListener('mouseenter', function () {
+                tooltip && tooltip.classList.remove('invisible');
+            });
+
+            tooltipButton.addEventListener('mouseleave', function () {
+                tooltip && tooltip.classList.add('invisible');
+            });
+
+        }
+
+    });
+</script>

@@ -1,0 +1,9 @@
+---
+import Download from "../../icons/Download.astro";
+const {href = '#'} = Astro.props
+---
+
+<a href={href}
+   class="shadow-xl flex gap-x-2 hover:brightness-110 hover:animate-pulse text-[1rem] sm:text-xl font-bold py-4 px-6 rounded-full bg-gradient-to-r from-baseColor-400 to-baseColor-600 text-white uppercase">
+    <slot/>
+</a>

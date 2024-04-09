@@ -1,6 +1,9 @@
 ---
 import Button from "../common/Button.astro";
 import SendEmail from "../../icons/SendEmail.astro";
+import Telegram from "../../icons/Telegram.astro";
+import Whatsapp from "../../icons/Whatsapp.astro";
+import Call from "../../icons/Call.astro";
 
 const CONTACT = [
     {
@@ -9,17 +12,17 @@ const CONTACT = [
         link: 'mailto:yohan12.carlos@gmail.com'
     },
     {
-        icon: SendEmail,
+        icon: Call,
         text: '+53 500 18717',
         link: 'tel:+5350018717'
     },
     {
-        icon: SendEmail,
+        icon: Whatsapp,
         text: '+5350018717',
         link: 'tel:+5350018717'
     },
     {
-        icon: SendEmail,
+        icon: Telegram,
         text: '+5350018717',
         link: 'tel:+5350018717'
     }
@@ -27,8 +30,8 @@ const CONTACT = [
 ---
 <div class="flex flex-col lg:flex-row justify-center gap-16">
     <div class="w-full lg:w-1/2 flex justify-center flex-col items-start space-y-6">
-        <h4 class="font-jetbrains font-black text-3xl">Available for Walk!</h4>
-        <p class="text-balance text-xl text-gray-500">
+        <h4 class="font-jetbrains font-black text-2xl md:text-3xl">Available for Walk!</h4>
+        <p class="text-balance text-[1rem] md:text-xl text-gray-500">
             Have any questions, inquiries, or are ready to start a project with us? There you have our contact
             information, you can also send us a message through the contact form below. Meanwhile, don't forget to
             follow us on social networks:
@@ -36,15 +39,15 @@ const CONTACT = [
     </div>
     <div class="w-full lg:w-1/2 flex flex-col items-start space-y-6 lg:ml-32 ">
 
-        <h4 class="font-jetbrains font-black text-xl sm:text-2xl md:text-3xl">Get in touch</h4>
+        <h4 class="font-jetbrains font-black text-2xl md:text-3xl">Get in touch</h4>
         <div class="flex gap-4 flex-wrap">
             {CONTACT.map(touch => (
                     <div class="flex gap-x-6 items-center relative">
                         <a title="yohan12.carlos@gmail.com"
                            id="tooltipButton"
-                           class="flex flex-col items-center justify-center bg-orange-500 text-white text-xl size-24  border-baseColor-500 rounded-full transition duration-500 hover:scale-105 shadow-2xl"
+                           class="flex flex-col items-center justify-center bg-orange-500 text-white text-xl size-16 md:size-24  border-baseColor-500 rounded-full transition duration-500 hover:scale-105 shadow-2xl"
                            href="#">
-                            <touch.icon class="size-16"/>
+                            <touch.icon class="size-10 md:size-16"/>
                         </a>
                         <div class="absolute top-0 left-0  p-3 bg-gray-700 text-white rounded shadow-lg invisible tooltip whitespace-nowrap">
                             {touch.text}

@@ -2,51 +2,50 @@
 const EXPERIENCE = [
     {
         link: '',
-        title: 'Application UI v2.0.0',
-        date: 'January 13th, 2022',
-        text: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.'
+        title: 'AGL Tech Solutions LLC, Las Vegas, USA',
+        date: 'October 2023 - Present',
+        text: 'I have contributed to innovative projects such as Leisure Pay, Sales Matrix, R3x and Sakazuki, applying my skills in Vue.js, React JS, Next js, blockchain, ethereum. My experience has been fundamental in the development of AI and blockchain solutions, improving the efficiency and security of transactions.'
 
     },
     {
         link: '',
-        title: 'Application UI v2.0.0',
-        date: 'Released on January 13th, 2022',
-        text: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.'
+        title: 'Ublik - Quito, Ecuador',
+        date: 'Febrary 2022 - October 2023',
+        text: 'As a React JS front-end developer at Ublik agency, I had the opportunity to immerse myself in a world of innovation and creativity. My role was crucial in the introduction to the development team, where I was able to contribute significantly to the implementation of impactful projects such as Last Mile, Next Track, Civil Registry and SIADI.'
 
     },
     {
         link: '',
-        title: 'Application UI v2.0.0',
-        date: 'Released on January 13th, 2022',
-        text: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.'
-
+        title: 'QA-BIT - Madrid, Spain',
+        date: 'September 2021 - January 2022',
+        text: 'I had the opportunity to play Front End Roles in React js, and Wordpress, and as a Team Leader. Projects such as Tarificador Autobuses, Alef Getafe, among others, marked my experience with this agency, to which I continue to contribute my knowledge and mutual help.'
     },
     {
         link: '',
-        title: 'Application UI v2.0.0',
-        date: 'Released on January 13th, 2022',
-        text: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.'
+        title: 'BFS Tracking System, Miami-USA',
+        date: 'September 2020 - August 2021',
+        text: `I had the opportunity to work on a project that allowed me to apply and expand my skills in software development and data analysis. My main responsibility was the design and development of an interactive dashboard, designed to provide a clear and accessible view of the data related to the agency 's freight, truck and trailer system.`
 
     }
 ]
 ---
 <div class="flex flex-col lg:flex-row gap-16 ">
-    <div class="w-full lg:w-1/2">
+    <div class="w-full lg:w-1/2 flex ">
         <img alt="experience image" src="/assets/experience.svg" class="w-[40rem]" loading="lazy">
     </div>
     <div class="w-full lg:w-1/2 p-6">
         <ol class="relative border-s-2 border-gray-200 dark:border-gray-700">
             {EXPERIENCE.map((exp, i) => (
                     <li class="  mb-10 md:ms-10 ms-8">
-        <span class="absolute flex items-center justify-center size-8 md:size-10 bg-blue-100 rounded-full -start-5 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg class=" size-4 md:size-5 text-blue-800 dark:text-blue-300" aria-hidden="true"
+        <span class="absolute flex items-center justify-center size-8 md:size-10 bg-blue-100 rounded-full -start-5 ring-8 ring-gray-50 dark:ring-gray-800 dark:bg-white">
+            <svg class="size-4 md:size-5 text-baseColor-500 dark:text-baseColor-500" aria-hidden="true"
                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
             </svg>
         </span>
                         <h3 class="flex items-center mb-1 text-[1rem] sm:text-xl mb:text-2xl font-semibold text-gray-900 dark:text-white">
                             {exp.title} {i == 0 && <span
-                                class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ms-3">Currently</span>}
+                                class="bg-blue-100 text-baseColor-500 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-baseColor-500 dark:text-white ms-3">Currently</span>}
                         </h3>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{exp.date}
                         </time>

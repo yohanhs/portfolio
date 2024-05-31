@@ -9,12 +9,12 @@ interface Props {
 }
 const {menu} = Astro.props
 ---
-<div class="hidden lg:flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-6 header">
     <nav class="flex gap-x-4 items-center rounded-full px-4 py-2  ">
         {menu.map((men: IMenu, index: number) =>
                 <a
-                        class={`flex gap-2 items-center text-[1.1rem] ${pathname === men.link ? 'bg-custom_gradient text-white' : 'bg-white dark:bg-slate-500 dark:text-white'}  hover:bg-custom_gradient text-sm border border-baseColor-400 hover:text-white text-black/70 uppercase font-semibold rounded-md  transition py-3 px-4 active:bg-baseColor-800`}
-                        href={men.link} rel="noreferrer">
+                        class={`flex gap-2 items-center text-[1.1rem] dark:text-white  hover:bg-custom_gradient rounded-md text-sm  hover:text-white text-black/70 uppercase font-semibold transition py-3 px-4 active:bg-baseColor-800`}
+                        href={men.link} rel="noreferrer" aria-label={men.label}>
                     <men.icon class="size-6"/>
                     {men.title}
                 </a>
@@ -23,3 +23,46 @@ const {menu} = Astro.props
     <ToogleDarkMode/>
 </div>
 
+<script>
+
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll(".header nav a")
+
+    const callback = (entries: any[]) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                navItems.forEach((item) => {
+                    if (item.getAttribute("aria-label") == entry.target.id) {
+                        item.classList.add("bg-custom_gradient")
+                        item.classList.add("text-white")
+                    } else {
+                        item.classList.remove("bg-custom_gradient");
+                        item.classList.remove("text-white")
+                    }
+                })
+            }
+        })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+        observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+        if (document.visibilityState === "hidden") {
+            observer.disconnect()
+        } else {
+            sections.forEach((section) => {
+                observer.observe(section)
+            })
+        }
+    }
+
+</script>

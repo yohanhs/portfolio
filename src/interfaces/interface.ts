@@ -1,5 +1,6 @@
 export type IMenu = {
     title: string;
     link: string;
-    icon: any
+    icon: any;
+    label: string
 }
